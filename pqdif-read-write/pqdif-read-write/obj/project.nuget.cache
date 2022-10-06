@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/BEmzWWRc9XmyWpJNuFvhQK4QSl06P4IbWHGvLSDW9cuz6Uwn7OQCU7jSs+W3vwAfuHkFLk5sw3dDhILasYoAg==",
+  "dgSpecHash": "rAi/ts9y+6vJfr+Lvokhda7VYADuuPcR1NMebRzAkGr9ihFW0iMTNrzL4614vbjFxw9wOORb9VGq8/hGkUbnPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-read-write\\pqdif-ui.csproj",
+  "projectFilePath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-read-write\\GUI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

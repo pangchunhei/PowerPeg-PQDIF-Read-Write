@@ -208,17 +208,17 @@
           }
         }
       },
-      "pqdif-file-io/1.0.0": {
+      "pqdif_file_process/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Gemstone.PQDIF": "1.0.86"
         },
         "compile": {
-          "bin/placeholder/pqdif-file-io.dll": {}
+          "bin/placeholder/pqdif_file_process.dll": {}
         },
         "runtime": {
-          "bin/placeholder/pqdif-file-io.dll": {}
+          "bin/placeholder/pqdif_file_process.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WindowsForms"
@@ -795,40 +795,37 @@
         "system.text.encoding.extensions.nuspec"
       ]
     },
-    "pqdif-file-io/1.0.0": {
+    "pqdif_file_process/1.0.0": {
       "type": "project",
-      "path": "../pqdif-file-io/pqdif-file-io.csproj",
-      "msbuildProject": "../pqdif-file-io/pqdif-file-io.csproj"
+      "path": "../pqdif-file-io/pqdif_file_process.csproj",
+      "msbuildProject": "../pqdif-file-io/pqdif_file_process.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "pqdif-file-io >= 1.0.0"
+      "pqdif_file_process >= 1.0.0"
     ]
   },
   "packageFolders": {
     "C:\\Users\\elsto\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\test\\test.csproj",
-      "projectName": "test",
-      "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\test\\test.csproj",
+      "projectUniqueName": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\test\\consoleUI.csproj",
+      "projectName": "consoleUI",
+      "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\test\\consoleUI.csproj",
       "packagesPath": "C:\\Users\\elsto\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\elsto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows"
@@ -841,8 +838,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-io.csproj": {
-              "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-io.csproj"
+            "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif_file_process.csproj": {
+              "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif_file_process.csproj"
             }
           }
         }

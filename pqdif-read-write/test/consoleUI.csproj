@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\pqdif-file-io\pqdif-file-io.csproj" />
+    <ProjectReference Include="..\pqdif-file-io\pqdif_file_process.csproj" />
   </ItemGroup>
 
   <ItemGroup>
