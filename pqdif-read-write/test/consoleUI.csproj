@@ -15,4 +15,8 @@
     <Folder Include="Test\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Gemstone.PQDIF" Version="1.0.86" />
+  </ItemGroup>
+
 </Project>

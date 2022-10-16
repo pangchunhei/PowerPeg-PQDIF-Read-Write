@@ -803,6 +803,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "Gemstone.PQDIF >= 1.0.86",
       "pqdif_file_process >= 1.0.0"
     ]
   },
@@ -853,6 +854,12 @@
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "Gemstone.PQDIF": {
+            "target": "Package",
+            "version": "[1.0.86, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

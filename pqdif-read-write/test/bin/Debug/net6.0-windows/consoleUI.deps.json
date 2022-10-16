@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "consoleUI/1.0.0": {
         "dependencies": {
+          "Gemstone.PQDIF": "1.0.86",
           "pqdif_file_process": "1.0.0"
         },
         "runtime": {
