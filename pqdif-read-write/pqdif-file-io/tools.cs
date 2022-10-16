@@ -68,9 +68,10 @@ namespace pqdif_file_io
                 Console.WriteLine();
             }
             */
-
-            printRecord(observationRecords[36]);
-
+            foreach(var observationRecord in observationRecords)
+            {
+                printRecord(observationRecord);
+            }
         }
 
         public ChannelDefinition matchChannelDefinitation(ChannelInstance targetChannel)
@@ -99,9 +100,19 @@ namespace pqdif_file_io
                     IList<object> data = channelinstance.SeriesInstances[i].OriginalValues;
                     string raw = string.Join(",", data);
 
-                    Console.WriteLine(title + ", " + fieldName + ", " + raw);
+                    Console.Write(title + ", " + fieldName + ", " + raw + Environment.NewLine);
+
+                    saveToCSV(title + ", " + fieldName + ", " + raw + Environment.NewLine);
+
                 }
             }
+        }
+
+        public static void saveToCSV(string str)
+        {
+            string fileName = ".\\test_20100913.csv";
+
+            File.AppendAllText(fileName, str);
         }
     }
 }
