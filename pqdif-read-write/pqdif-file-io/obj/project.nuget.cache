@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JhjjbnLZaJ9It98a2dGfIEjX24RZSijvpNgvmXtN1OggBNbuc4dTGB3i3QMIld/mVPwtyIGbuYnCqotqn9RNpw==",
+  "dgSpecHash": "uDxjFAMVHg5K4lPMe3368IQxhp9PHu84hzxsXwXa2AeDVxAkNm5YGQIKW+hPxa4fDeeCCFY5I2jEtivFNZVnxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif_file_process.csproj",
+  "projectFilePath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elsto\\.nuget\\packages\\dotnetzip\\1.13.4\\dotnetzip.1.13.4.nupkg.sha512",
     "C:\\Users\\elsto\\.nuget\\packages\\gemstone.pqdif\\1.0.86\\gemstone.pqdif.1.0.86.nupkg.sha512",

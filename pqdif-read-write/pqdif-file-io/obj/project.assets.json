@@ -792,9 +792,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif_file_process.csproj",
-      "projectName": "pqdif_file_process",
-      "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif_file_process.csproj",
+      "projectUniqueName": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj",
+      "projectName": "pqdif-file-process",
+      "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj",
       "packagesPath": "C:\\Users\\elsto\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\obj\\",
       "projectStyle": "PackageReference",
@@ -853,7 +853,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

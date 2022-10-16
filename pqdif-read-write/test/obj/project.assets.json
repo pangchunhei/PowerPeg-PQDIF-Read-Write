@@ -208,17 +208,17 @@
           }
         }
       },
-      "pqdif_file_process/1.0.0": {
+      "pqdif-file-process/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Gemstone.PQDIF": "1.0.86"
         },
         "compile": {
-          "bin/placeholder/pqdif_file_process.dll": {}
+          "bin/placeholder/pqdif-file-process.dll": {}
         },
         "runtime": {
-          "bin/placeholder/pqdif_file_process.dll": {}
+          "bin/placeholder/pqdif-file-process.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WindowsForms"
@@ -795,16 +795,16 @@
         "system.text.encoding.extensions.nuspec"
       ]
     },
-    "pqdif_file_process/1.0.0": {
+    "pqdif-file-process/1.0.0": {
       "type": "project",
-      "path": "../pqdif-file-io/pqdif_file_process.csproj",
-      "msbuildProject": "../pqdif-file-io/pqdif_file_process.csproj"
+      "path": "../pqdif-file-io/pqdif-file-process.csproj",
+      "msbuildProject": "../pqdif-file-io/pqdif-file-process.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "Gemstone.PQDIF >= 1.0.86",
-      "pqdif_file_process >= 1.0.0"
+      "pqdif-file-process >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -839,8 +839,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif_file_process.csproj": {
-              "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif_file_process.csproj"
+            "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj": {
+              "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj"
             }
           }
         }
@@ -876,7 +876,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

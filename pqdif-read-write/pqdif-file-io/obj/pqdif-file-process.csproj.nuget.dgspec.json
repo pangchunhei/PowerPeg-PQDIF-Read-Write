@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-read-write\\GUI.csproj": {}
+    "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-read-write\\GUI.csproj": {
+    "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-read-write\\GUI.csproj",
-        "projectName": "GUI",
-        "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-read-write\\GUI.csproj",
+        "projectUniqueName": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj",
+        "projectName": "pqdif-file-process",
+        "projectPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\pqdif-file-process.csproj",
         "packagesPath": "C:\\Users\\elsto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-read-write\\obj\\",
+        "outputPath": "C:\\Users\\elsto\\Documents\\GitHub\\PowerPeg-PQDIF-Read-Write\\pqdif-read-write\\pqdif-file-io\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
