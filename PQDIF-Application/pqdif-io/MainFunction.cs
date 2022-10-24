@@ -22,19 +22,23 @@ namespace pqdif_io
         {
             //File io
             await using LogicalParser parser = new LogicalParser(filePath);
-            await parser.OpenAsync();
 
             //Observation record raw data
+            await parser.OpenAsync();
             observationRecords = new List<ObservationRecord>();
             while (await parser.HasNextObservationRecordAsync())
             {
                 observationRecords.Add(await parser.NextObservationRecordAsync());
             }
+            await parser.CloseAsync();
+
+            string pqdifTitle = "File Name:," + parser.ContainerRecord.FileName + ",Creation Date:" + parser.ContainerRecord.Creation + Environment.NewLine;
+            saveToCSV(pqdifTitle);
 
             //Structure mapping
             dataSource = parser.DataSourceRecords[0];
             channelDefinitions = dataSource.ChannelDefinitions;
-
+            
             //Get the value of a observation record from pqdif
             foreach (var observationRecord in observationRecords)
             {
