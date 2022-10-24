@@ -6,22 +6,25 @@ namespace pqdif_io
 {
     public class MainFunction
     {
-        public MainFunction(string fname = "test_output.csv")
+        public MainFunction(string pqdifpath, string csvpath = "test_output.csv")
         {
-            this.fileName = ".\\" + fname;
-            File.WriteAllText(fileName, string.Empty);
+            this.pqdifFilePath = pqdifpath;
+            this.csvFilePath = csvpath;
+
+            File.WriteAllText(csvFilePath, string.Empty);
         }
 
         private DataSourceRecord dataSource;
         private IList<ChannelDefinition> channelDefinitions;
         private List<ObservationRecord> observationRecords;
 
-        private string fileName;
+        private string pqdifFilePath;
+        private string csvFilePath;
 
-        public async Task importPQDifFile(string filePath)
+        public async Task importPQDifFile()
         {
             //File io
-            await using LogicalParser parser = new LogicalParser(filePath);
+            await using LogicalParser parser = new LogicalParser(this.pqdifFilePath);
 
             //Observation record raw data
             await parser.OpenAsync();
@@ -96,7 +99,7 @@ namespace pqdif_io
 
         public void saveToCSV(string str)
         {
-            File.AppendAllText(this.fileName, str);
+            File.AppendAllText(this.csvFilePath, str);
         }
     }
 }
