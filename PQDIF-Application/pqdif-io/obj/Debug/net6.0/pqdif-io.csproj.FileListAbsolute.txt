@@ -1,0 +1,12 @@
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\bin\Debug\net6.0\pqdif-io.deps.json
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\bin\Debug\net6.0\pqdif-io.dll
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\bin\Debug\net6.0\pqdif-io.pdb
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\pqdif-io.csproj.AssemblyReference.cache
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\pqdif-io.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\pqdif-io.AssemblyInfoInputs.cache
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\pqdif-io.AssemblyInfo.cs
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\pqdif-io.csproj.CoreCompileInputs.cache
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\pqdif-io.dll
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\refint\pqdif-io.dll
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\pqdif-io.pdb
+C:\Users\elsto\Documents\GitHub\PowerPeg-PQDIF-Read-Write\PQDIF-Application\pqdif-io\obj\Debug\net6.0\ref\pqdif-io.dll
