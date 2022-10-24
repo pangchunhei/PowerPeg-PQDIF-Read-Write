@@ -19,7 +19,7 @@ else
     pqdifPath = inputPqdifPath;
 }
 
-Console.WriteLine("Please input the absolute file path and name for the output csv file, if want to use default press 'Enter'");
+Console.WriteLine("Please input the absolute file path and name for the output csv file, if want to use default (bin folder) press 'Enter'");
 string inputCSVPath = Console.ReadLine();
 
 if (string.IsNullOrEmpty(inputCSVPath))
