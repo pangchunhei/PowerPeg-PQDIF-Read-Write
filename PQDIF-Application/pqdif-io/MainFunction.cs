@@ -6,9 +6,9 @@ namespace pqdif_io
 {
     public class MainFunction
     {
-        public MainFunction(string fname = "test_20100913.csv")
+        public MainFunction(string fname = "test_output.csv")
         {
-            fileName = ".\\" + fname;
+            this.fileName = ".\\" + fname;
             File.WriteAllText(fileName, string.Empty);
         }
 
@@ -35,42 +35,7 @@ namespace pqdif_io
             dataSource = parser.DataSourceRecords[0];
             channelDefinitions = dataSource.ChannelDefinitions;
 
-            /*
-            foreach (ObservationRecord observationRecord in observationRecords)
-            {
-                Console.Write(observationRecord.StartTime);
-
-                // Get the first channel instance
-                ChannelInstance firstChannelInstance = observationRecord.ChannelInstances[0];
-
-                List<string> valueName = new List<string>();
-                List<string> valueId = new List<string>();
-
-                foreach (ChannelDefinition def in observationRecord.DataSource.ChannelDefinitions)
-                {
-                    valueName.Add(def.ChannelName);
-                    valueId.Add(def.QuantityTypeID.ToString());
-                }
-
-                string csv2 = string.Join(",", valueName);
-                string csv3 = string.Join(",", valueId);
-                Console.WriteLine(csv2);
-                Console.WriteLine(csv3);
-
-                foreach (SeriesInstance seriesInstance in firstChannelInstance.SeriesInstances)
-                {
-                    // FYI, this expands StorageMethods.Increment and applies
-                    // scale/offset and transducer ratio fields to the values,
-                    // as opposed to seriesInstance.SeriesValues which returns
-                    // the unmodified raw values as a VectorElement
-                    IList<object> values = seriesInstance.OriginalValues;
-                    string csv1 = string.Join(",", values);
-                    Console.WriteLine(csv1);
-                }
-
-                Console.WriteLine();
-            }
-            */
+            //Get the value of a observation record from pqdif
             foreach (var observationRecord in observationRecords)
             {
                 printRecord(observationRecord);
@@ -86,6 +51,8 @@ namespace pqdif_io
 
         public void printRecord(ObservationRecord targetObservation)
         {
+            DateTime startTime = targetObservation.StartTime;
+
             foreach (ChannelInstance channelinstance in targetObservation.ChannelInstances)
             {
                 ChannelDefinition channeldefinition = matchChannelDefinitation(channelinstance);
@@ -97,16 +64,28 @@ namespace pqdif_io
 
                 for (int i = 0; i < channelinstance.SeriesInstances.Count; i++)
                 {
-
                     Guid tagIdx = channeldefinition.SeriesDefinitions[i].ValueTypeID;
                     string fieldName = SeriesValueType.ToString(tagIdx);
+
                     IList<object> data = channelinstance.SeriesInstances[i].OriginalValues;
+
+                    if (fieldName.Equals("Time"))
+                    {
+                        IList<Object> adjusted = new List<Object>();
+                        foreach(Double dt in data)
+                        {
+                            DateTime startTimeClone = startTime.AddSeconds(dt);
+                            adjusted.Add(startTimeClone);
+                        }
+
+                        data = adjusted;
+                    }
+
                     string raw = string.Join(",", data);
 
-                    Console.Write(title + ", " + fieldName + ", " + raw + Environment.NewLine);
+                    Console.Write(title + "," + fieldName + "," + raw + Environment.NewLine);
 
-                    saveToCSV(title + ", " + fieldName + ", " + raw + Environment.NewLine);
-
+                    saveToCSV(title + "," + fieldName + "," + raw + Environment.NewLine);
                 }
             }
         }
