@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Gemstone.PQDIF.Logical;
 using Gemstone.PQDIF;
 
@@ -100,6 +101,13 @@ namespace pqdif_io
         public void saveToCSV(string str)
         {
             File.AppendAllText(this.csvFilePath, str);
+        }
+
+        public void batchProcessing()
+        {
+            string[] filePaths = Directory.GetFiles(@".\BatchInput", "*.pqd");
+
+
         }
     }
 }
