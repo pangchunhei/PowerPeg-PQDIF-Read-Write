@@ -2,11 +2,14 @@
 using System.IO;
 using Gemstone.PQDIF.Logical;
 using Gemstone.PQDIF;
+using System.Configuration;
+using log4net;
 
 namespace pqdif_io
 {
     public class MainFunction
     {
+        /*
         public MainFunction(string pqdifpath, string csvpath = "test_output.csv")
         {
             this.pqdifFilePath = pqdifpath;
@@ -33,7 +36,7 @@ namespace pqdif_io
             while (await parser.HasNextObservationRecordAsync())
             {
                 observationRecords.Add(await parser.NextObservationRecordAsync());
-            }
+            }   
             await parser.CloseAsync();
 
             string pqdifTitle = "File Name:," + parser.ContainerRecord.FileName + ",Creation Date:" + parser.ContainerRecord.Creation + Environment.NewLine;
@@ -102,12 +105,33 @@ namespace pqdif_io
         {
             File.AppendAllText(this.csvFilePath, str);
         }
+        */
 
-        public void batchProcessing()
+        private static readonly ILog log = LogHelper.getLogger();
+
+        public MainFunction()
         {
-            string[] filePaths = Directory.GetFiles(@".\BatchInput", "*.pqd");
+            
+        }
 
+        public async Task batchProcessing()
+        {
+            string pqdifFolder = AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["BatchImportFolder"];
 
+            string[] filePaths = Directory.GetFiles(pqdifFolder, "*.pqd");
+
+            foreach(string filePath in filePaths)
+            {
+                log.Info($"Prepare process the PQDIF file from: {filePath}");
+
+                PQDIFGateway pqdifGateway = new PQDIFGateway(filePath);
+
+                Record record = await pqdifGateway.importPQDifFile();
+
+                ProcessFile processFile = new ProcessFile(Path.GetFileName(filePath), record);
+
+                processFile.processObservationRecords();
+            }
         }
     }
 }

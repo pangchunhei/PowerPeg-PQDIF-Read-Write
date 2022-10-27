@@ -2,11 +2,19 @@
 
 // See https://aka.ms/new-console-template for more information
 
+/*
 string pqdifPath;
 MainFunction t;
+*/
 
 Console.WriteLine("Running PQDif to CSV application....");
-Console.WriteLine("Please input the absolute file path for the PQDif file, if want to use default press 'Enter'");
+
+MainFunction m = new MainFunction();
+await m.batchProcessing();
+
+Console.WriteLine("Finished Output, application closed");
+
+/*.WriteLine("Please input the absolute file path for the PQDif file, if want to use default press 'Enter'");
 string inputPqdifPath = Console.ReadLine();
 
 if (string.IsNullOrEmpty(inputPqdifPath))
@@ -33,4 +41,4 @@ else
 
 await t.importPQDifFile();
 
-Console.WriteLine("Finished Output, application closed");
+Console.WriteLine("Finished Output, application closed");*/

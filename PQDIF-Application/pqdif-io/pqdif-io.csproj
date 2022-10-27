@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Gemstone.PQDIF" Version="1.0.86" />
+    <PackageReference Include="log4net" Version="2.0.15" />
   </ItemGroup>
 
 </Project>
