@@ -23,7 +23,7 @@ namespace pqdif_io
 
         private string csvFilePath;
 
-        public void saveToCSV(string lineContent)
+        public void saveLineToCSV(string lineContent)
         {
             log.Debug($"Save to CSV line {lineContent}");
 

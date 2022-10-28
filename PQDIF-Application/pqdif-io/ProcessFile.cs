@@ -35,7 +35,7 @@ namespace pqdif_io
 
             log.Info($"Process PQDIF file: {pqdifTitle}");
 
-            csvGateway.saveToCSV(pqdifTitle);
+            csvGateway.saveLineToCSV(pqdifTitle);
 
             List<ObservationRecord> observationRecords = this.pqdifRecord.getObservationRecords();
 
@@ -80,7 +80,7 @@ namespace pqdif_io
 
                     log.Info($"Process PQDIF file: {exportLine}");
 
-                    csvGateway.saveToCSV(exportLine);
+                    csvGateway.saveLineToCSV(exportLine);
                 }
             }
         }
