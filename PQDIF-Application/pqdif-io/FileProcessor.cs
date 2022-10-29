@@ -41,7 +41,7 @@ namespace pqdif_io
             
             for(int i = 0; i < observationRecords.Count; i++)
             {
-                log.Info($"Process PQDIF file ObservationRecord progress: {i + 1}/{observationRecords.Count}");
+                log.Info($"ObservationRecord progress: {i + 1}/{observationRecords.Count}");
 
                 translateRecord(observationRecords[i]);
             }
@@ -80,7 +80,7 @@ namespace pqdif_io
                     string raw = string.Join(",", data);
                     string exportLine = title + "," + fieldName + "," + raw;
 
-                    log.Debug($"Process PQDIF file: {exportLine}");
+                    //log.Debug($"Process PQDIF file: {exportLine}");
 
                     csvGateway.saveLineToCSV(exportLine);
                 }
