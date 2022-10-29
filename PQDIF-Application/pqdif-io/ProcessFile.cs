@@ -31,7 +31,7 @@ namespace pqdif_io
 
         public void processObservationRecords()
         {
-            string pqdifTitle = "File Name:," + this.pqdifRecord.getPqdifTitle() + ",Creation Date:" + this.pqdifRecord.getCreateDateTime() + Environment.NewLine;
+            string pqdifTitle = "File Name:," + this.pqdifRecord.getPqdifTitle() + ",Creation Date:" + this.pqdifRecord.getCreateDateTime();
 
             log.Info($"Process PQDIF file: {pqdifTitle}");
 
@@ -76,7 +76,7 @@ namespace pqdif_io
                     }
 
                     string raw = string.Join(",", data);
-                    string exportLine = title + "," + fieldName + "," + raw + Environment.NewLine;
+                    string exportLine = title + "," + fieldName + "," + raw;
 
                     log.Info($"Process PQDIF file: {exportLine}");
 
