@@ -20,7 +20,7 @@ namespace pqdif_io
 
         public async Task<Record> importPQDifFile()
         {
-            log.Info($"Import PQDIF file from: {this.pqdifFilePath}");
+            log.Debug($"Import PQDIF file from: {this.pqdifFilePath}");
 
             //DataSourceRecord dataSource;
 

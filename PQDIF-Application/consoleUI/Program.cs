@@ -9,36 +9,24 @@ MainFunction t;
 
 Console.WriteLine("Running PQDif to CSV application....");
 
-MainFunction m = new MainFunction();
-await m.batchProcessing();
+string confirm;
+do
+{
+    Console.WriteLine("Please confirm the PQDIF files are in (Y/N):");
+    Console.WriteLine(MainFunction.getDefaultPQDIFFolderPath());
+    confirm = Console.ReadLine();
+} while (!(confirm.Equals("Y") || confirm.Equals("y")));
 
-Console.WriteLine("Finished Output, application closed");
+await MainFunction.batchProcessing();
 
-/*.WriteLine("Please input the absolute file path for the PQDif file, if want to use default press 'Enter'");
+Console.WriteLine("Finished Output, CSVs are in:");
+Console.WriteLine(MainFunction.getDefaultCSVExportFolder());
+Console.WriteLine("Application closing");
+
+/*
+Console.WriteLine("Please input the absolute file path for the PQDif file, if want to use default press 'Enter'");
 string inputPqdifPath = Console.ReadLine();
-
-if (string.IsNullOrEmpty(inputPqdifPath))
-{
-    inputPqdifPath = "t1.pqd";
-    pqdifPath = Path.Combine(Environment.CurrentDirectory, @"TestCase\", inputPqdifPath);
-}
-else
-{
-    pqdifPath = inputPqdifPath;
-}
 
 Console.WriteLine("Please input the absolute file path and name for the output csv file, if want to use default (bin folder) press 'Enter'");
 string inputCSVPath = Console.ReadLine();
-
-if (string.IsNullOrEmpty(inputCSVPath))
-{
-    t = new MainFunction(pqdifPath);
-}
-else
-{
-    t = new MainFunction(pqdifPath, inputCSVPath);
-}
-
-await t.importPQDifFile();
-
-Console.WriteLine("Finished Output, application closed");*/
+*/

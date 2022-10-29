@@ -9,114 +9,21 @@ namespace pqdif_io
 {
     public class MainFunction
     {
-        /*
-        public MainFunction(string pqdifpath, string csvpath = "test_output.csv")
-        {
-            this.pqdifFilePath = pqdifpath;
-            this.csvFilePath = csvpath;
-
-            File.WriteAllText(csvFilePath, string.Empty);
-        }
-
-        private DataSourceRecord dataSource;
-        private IList<ChannelDefinition> channelDefinitions;
-        private List<ObservationRecord> observationRecords;
-
-        private string pqdifFilePath;
-        private string csvFilePath;
-
-        public async Task importPQDifFile()
-        {
-            //File io
-            await using LogicalParser parser = new LogicalParser(this.pqdifFilePath);
-
-            //Observation record raw data
-            await parser.OpenAsync();
-            observationRecords = new List<ObservationRecord>();
-            while (await parser.HasNextObservationRecordAsync())
-            {
-                observationRecords.Add(await parser.NextObservationRecordAsync());
-            }   
-            await parser.CloseAsync();
-
-            string pqdifTitle = "File Name:," + parser.ContainerRecord.FileName + ",Creation Date:" + parser.ContainerRecord.Creation + Environment.NewLine;
-            saveToCSV(pqdifTitle);
-
-            //Structure mapping
-            dataSource = parser.DataSourceRecords[0];
-            channelDefinitions = dataSource.ChannelDefinitions;
-            
-            //Get the value of a observation record from pqdif
-            foreach (var observationRecord in observationRecords)
-            {
-                printRecord(observationRecord);
-            }
-        }
-
-        public ChannelDefinition matchChannelDefinitation(ChannelInstance targetChannel)
-        {
-            uint idx = targetChannel.ChannelDefinitionIndex;
-
-            return channelDefinitions[checked((int)idx)];
-        }
-
-        public void printRecord(ObservationRecord targetObservation)
-        {
-            DateTime startTime = targetObservation.StartTime;
-
-            foreach (ChannelInstance channelinstance in targetObservation.ChannelInstances)
-            {
-                ChannelDefinition channeldefinition = matchChannelDefinitation(channelinstance);
-
-                int groupIdx = channelinstance.ChannelGroupID;
-
-                //Console.WriteLine("Channel Defination: " + channeldefinition.ChannelName + " Group Name: " + groupIdx);
-                string title = "Channel Defination: " + channeldefinition.ChannelName + " Group Name: " + groupIdx;
-
-                for (int i = 0; i < channelinstance.SeriesInstances.Count; i++)
-                {
-                    Guid tagIdx = channeldefinition.SeriesDefinitions[i].ValueTypeID;
-                    string fieldName = SeriesValueType.ToString(tagIdx);
-
-                    IList<object> data = channelinstance.SeriesInstances[i].OriginalValues;
-
-                    if (fieldName.Equals("Time"))
-                    {
-                        IList<Object> adjusted = new List<Object>();
-                        foreach(Double dt in data)
-                        {
-                            DateTime startTimeClone = startTime.AddSeconds(dt);
-                            adjusted.Add(startTimeClone);
-                        }
-
-                        data = adjusted;
-                    }
-
-                    string raw = string.Join(",", data);
-
-                    Console.Write(title + "," + fieldName + "," + raw + Environment.NewLine);
-
-                    saveToCSV(title + "," + fieldName + "," + raw + Environment.NewLine);
-                }
-            }
-        }
-
-        public void saveToCSV(string str)
-        {
-            File.AppendAllText(this.csvFilePath, str);
-        }
-        */
-
         private static readonly ILog log = LogHelper.getLogger();
 
-        public MainFunction()
+        public static string getDefaultPQDIFFolderPath()
         {
-            
+            return AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["BatchImportFolder"];
         }
 
-        public async Task batchProcessing()
+        public static string getDefaultCSVExportFolder()
         {
-            string pqdifFolder = AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["BatchImportFolder"];
+            return AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["ExportCSVFolder"];
+        }
+
+        public static async Task batchProcessing()
+        {
+            string pqdifFolder = getDefaultPQDIFFolderPath();
 
             string[] filePaths = Directory.GetFiles(pqdifFolder, "*.pqd");
 
@@ -128,10 +35,12 @@ namespace pqdif_io
 
                 Record record = await pqdifGateway.importPQDifFile();
 
-                ProcessFile processFile = new ProcessFile(Path.GetFileName(filePath), record);
+                FileProcessor processFile = new FileProcessor(Path.GetFileName(filePath), record);
 
                 processFile.processObservationRecords();
             }
         }
     }
 }
+
+//Progress mon: https://bytelanguage.net/2018/07/14/reporting-progress-in-async-method/
