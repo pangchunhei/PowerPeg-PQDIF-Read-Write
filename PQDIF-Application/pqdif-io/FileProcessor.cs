@@ -38,12 +38,15 @@ namespace pqdif_io
             csvGateway.saveLineToCSV(pqdifTitle);
 
             List<ObservationRecord> observationRecords = this.pqdifRecord.getObservationRecords();
-            
-            for(int i = 0; i < observationRecords.Count; i++)
-            {
-                log.Info($"ObservationRecord progress: {i + 1}/{observationRecords.Count}");
 
-                translateRecord(observationRecords[i]);
+            int cnt = 1;
+            foreach (ObservationRecord observationRecord in observationRecords)
+            {
+                log.Info($"ObservationRecord progress: {cnt}/{observationRecords.Count}");
+
+                translateRecord(observationRecord);
+
+                cnt++;
             }
         }
 
@@ -51,11 +54,11 @@ namespace pqdif_io
         {
             DateTime startTime = targetObservation.StartTime;
 
+            string exportRecord = "";
+
             foreach (ChannelInstance channelinstance in targetObservation.ChannelInstances)
             {
                 ChannelDefinition channeldefinition = matchChannelDefinitation(channelinstance);
-
-                string title = "Channel Defination: " + channeldefinition.ChannelName + " Group Name: " + channelinstance.ChannelGroupID;
 
                 for (int i = 0; i < channelinstance.SeriesInstances.Count; i++)
                 {
@@ -63,8 +66,8 @@ namespace pqdif_io
                     string fieldName = SeriesValueType.ToString(tagIdx);
 
                     IList<object> data = channelinstance.SeriesInstances[i].OriginalValues;
-
-                    //Transklate Field
+                    
+                    //Adjustment on Field
                     if (fieldName.Equals("Time"))
                     {
                         IList<Object> adjusted = new List<Object>();
@@ -77,14 +80,21 @@ namespace pqdif_io
                         data = adjusted;
                     }
 
+                    //Skip null data row
+                    if (data.Count==0)
+                    {
+                        exportRecord = "";
+                        continue;
+                    }
+
                     string raw = string.Join(",", data);
-                    string exportLine = title + "," + fieldName + "," + raw;
+                    exportRecord += "Channel Defination," + channeldefinition.ChannelName + ",Group Name," + channelinstance.ChannelGroupID + "," + fieldName + "," + raw + Environment.NewLine;
 
                     //log.Debug($"Process PQDIF file: {exportLine}");
-
-                    csvGateway.saveLineToCSV(exportLine);
                 }
             }
+
+            csvGateway.saveSectionToCSV(exportRecord);
         }
     }
 }
