@@ -53,7 +53,7 @@ namespace pqdif_io
 
             foreach (ChannelInstance channelinstance in targetObservation.ChannelInstances)
             {
-                string exportRecord = "";
+                string exportObsChannelRecord = "";
                 
                 ChannelDefinition channeldefinition = matchChannelDefinitation(channelinstance);
 
@@ -80,17 +80,17 @@ namespace pqdif_io
                     //Skip null data row
                     if (data.Count == 0)
                     {
-                        exportRecord = "";
+                        exportObsChannelRecord = "";
                         break;
                     }
 
                     string raw = string.Join(",", data);
-                    exportRecord += "Channel Defination," + channeldefinition.ChannelName + ",Group Name," + channelinstance.ChannelGroupID + "," + fieldName + "," + raw + Environment.NewLine;
+                    exportObsChannelRecord += "Channel Defination," + channeldefinition.ChannelName + ",Group Name," + channelinstance.ChannelGroupID + "," + fieldName + "," + raw + Environment.NewLine;
 
-                    //log.Debug($"Process PQDIF file: {exportLine}");
+                    //log.Debug($"Process PQDIF file: {exportObsChannelRecord}");
                 }
 
-                csvGateway.saveSectionToCSV(exportRecord);
+                csvGateway.saveSectionToCSV(exportObsChannelRecord);
             }
         }
     }
