@@ -81,7 +81,7 @@ namespace pqdif_io
                     if (data.Count == 0)
                     {
                         exportRecord = "";
-                        continue;
+                        break;
                     }
 
                     string raw = string.Join(",", data);
