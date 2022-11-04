@@ -29,12 +29,5 @@ namespace pqdif_io
 
             File.AppendAllText(this.csvFilePath, lineContent + Environment.NewLine);
         }
-
-        public void saveSectionToCSV(string lineContent)
-        {
-            log.Debug($"Save to CSV line {lineContent}");
-
-            File.AppendAllText(this.csvFilePath, lineContent);
-        }
     }
 }
