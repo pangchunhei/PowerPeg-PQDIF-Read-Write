@@ -38,7 +38,7 @@ namespace pqdif_io
             csvGateway.saveLineToCSV(pqdifTitle);
 
             List<ObservationRecord> observationRecords = this.pqdifRecord.getObservationRecords();
-            
+
             for(int i = 0; i < observationRecords.Count; i++)
             {
                 log.Info($"ObservationRecord progress: {i + 1}/{observationRecords.Count}");
@@ -70,8 +70,21 @@ namespace pqdif_io
                         IList<object> adjusted = new List<object>();
                         foreach (Double dt in data)
                         {
-                            DateTime startTimeClone = startTime.AddSeconds(dt);
-                            adjusted.Add(startTimeClone.ToString("yyyy-MM-ddTHH:mm:ss.ffffff"));
+                            if ((dt % 1) == 0)
+                            {
+                                DateTime startTimeClone;
+                                startTimeClone = startTime.AddSeconds(dt);
+                                adjusted.Add(startTimeClone.ToString("yyyy-MM-ddTHH:mm:ss.ffffff"));
+                            }
+                            else
+                            {
+                                if(adjusted.Count == 1)
+                                {
+                                    adjusted.Clear();
+                                    adjusted.Add(0);
+                                }
+                                adjusted.Add(dt);
+                            }
                         }
 
                         data = adjusted;
