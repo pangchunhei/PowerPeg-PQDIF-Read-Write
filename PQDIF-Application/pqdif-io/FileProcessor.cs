@@ -67,17 +67,17 @@ namespace pqdif_io
                     //Adjustment on Field
                     if (fieldName.Equals("Time"))
                     {
-                        IList<Object> adjusted = new List<Object>();
+                        IList<object> adjusted = new List<object>();
                         foreach (Double dt in data)
                         {
                             DateTime startTimeClone = startTime.AddSeconds(dt);
-                            adjusted.Add(startTimeClone);
+                            adjusted.Add(startTimeClone.ToString("yyyy-MM-ddTHH:mm:ss.ffffff"));
                         }
 
                         data = adjusted;
                     }
 
-                    //Skip null data row
+                    //Skip null data row"
                     if (data.Count == 0)
                     {
                         exportObsChannelRecord = "";
