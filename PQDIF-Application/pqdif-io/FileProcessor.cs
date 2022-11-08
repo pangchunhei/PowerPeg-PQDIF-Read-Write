@@ -38,13 +38,15 @@ namespace pqdif_io
             csvGateway.saveLineToCSV(pqdifTitle);
 
             List<ObservationRecord> observationRecords = this.pqdifRecord.getObservationRecords();
-
+            
             for(int i = 0; i < observationRecords.Count; i++)
             {
                 log.Info($"ObservationRecord progress: {i + 1}/{observationRecords.Count}");
 
                 translateRecord(observationRecords[i]);
             }
+            //Test waveform
+            //translateRecord(observationRecords[120]);
         }
 
         private void translateRecord(ObservationRecord targetObservation)
@@ -68,22 +70,33 @@ namespace pqdif_io
                     if (fieldName.Equals("Time"))
                     {
                         IList<object> adjusted = new List<object>();
-                        foreach (Double dt in data)
+
+                        //For wavefom super small datetime second
+                        double lastFullSecAdd = -1;
+                        int lastFullSec = -1;
+
+                        for(int j = 0; j < data.Count; j++)
                         {
-                            if ((dt % 1) == 0)
+                            double dt = (double)data[j];
+                            DateTime startTimeClone;
+                            startTimeClone = startTime.AddSeconds(dt);
+
+                            if (channeldefinition.ChannelName.Contains("Waveform"))
                             {
-                                DateTime startTimeClone;
-                                startTimeClone = startTime.AddSeconds(dt);
-                                adjusted.Add(startTimeClone.ToString("yyyy-MM-ddTHH:mm:ss.ffffff"));
+                                if(startTimeClone.Second != lastFullSec)
+                                {
+                                    //Start of first second
+                                    lastFullSec = startTimeClone.Second;
+                                    lastFullSecAdd = dt;
+                                }
+
+                                double exactMS = startTimeClone.Second + dt - lastFullSecAdd;
+                                string adjStrTime = startTimeClone.ToString("yyyy-MM-ddTHH:mm:") + exactMS;
+                                adjusted.Add(adjStrTime);
                             }
                             else
                             {
-                                if(adjusted.Count == 1)
-                                {
-                                    adjusted.Clear();
-                                    adjusted.Add(0);
-                                }
-                                adjusted.Add(dt);
+                                adjusted.Add(startTimeClone.ToString("yyyy-MM-ddTHH:mm:ss.ffffff"));
                             }
                         }
 
