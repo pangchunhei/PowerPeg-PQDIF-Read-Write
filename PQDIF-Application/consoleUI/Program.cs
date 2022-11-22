@@ -21,7 +21,8 @@ await MainFunction.batchProcessing();
 
 Console.WriteLine("Finished Output, CSVs are in:");
 Console.WriteLine(MainFunction.getDefaultCSVExportFolder());
-Console.WriteLine("Application closing");
+Console.WriteLine("Press any key to close Application");
+Console.ReadKey();
 
 /*
 Console.WriteLine("Please input the absolute file path for the PQDif file, if want to use default press 'Enter'");
